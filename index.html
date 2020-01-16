@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/basic.css">
+    <title>Click Hunter</title>
+</head>
+<body class="body">
+
+    <div class="details">
+        <div class="tries">Tries:</div>
+        <div class="score">Score:</div>
+    </div>
+    <div class="container">
+        <button class="content"></button>
+        <button class="content"></button>
+        <button class="content"></button>
+        <button class="content"></button>
+        <button class="content"></button>
+        <button class="content"></button>
+        <button class="content"></button>
+        <button class="content"></button>
+        <button class="content"></button>
+    </div>
+
+
+    <script>
+
+        const box = document.querySelectorAll('.content');
+        const scoretag = document.querySelector('.score');
+        const trials = document.querySelector('.tries');
+        const bodyDocument = document.querySelector('.body');
+
+
+        let isClicked = false;
+        let score = 0;
+        let tries = 4;
+
+        function gameManager()
+        {
+            let randomBoxNumber = Math.floor(Math.random()*box.length);
+            box[randomBoxNumber].classList.add('focusClass');
+            box[randomBoxNumber].focus();
+            setTimeout(checkClick(isClicked), 2000);
+            box[randomBoxNumber].addEventListener('click', clickListener); 
+
+            if (isClicked){
+                console.log("After click " + isClicked);
+                scoretag.innerText = 'Score: ' + score;
+                console.log('score ' + score);
+                isClicked = false;
+            } 
+            console.log('Tries - ' +tries);
+
+        }
+
+        function clickListener ()
+        {
+            isClicked = true;
+            score++;
+        }
+
+        const checkClick = something => {
+            if (!something){
+
+                tries--;
+                trials.innerText = 'Tries: '+tries;
+            }
+                
+        }
+
+    setInterval(gameManager,3000);
+
+
+    </script>
+</body>
+</html>

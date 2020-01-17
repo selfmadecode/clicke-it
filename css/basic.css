@@ -8,24 +8,26 @@ html, body{
 }
 body{
     background: #FEFCFD;
-    /* margin: 70px; */
-    
+    /* margin: 70px; */    
 }
 body > .container{
     display: grid;
     /* margin: 10px; */
 }
 .details{
-    max-width: 50%;
+    max-width: 30%;
     margin: auto;
+    /* border: 1px solid yellow; */
 }
 body > .details{
     display: flex;
     margin-top: 70px;
+    margin-bottom: 10px;
 }
 .details > div{
     display: flex;
-    padding: 20px;;
+    padding: 20px;
+
 }
 .score{
     margin-left: auto;
@@ -37,7 +39,7 @@ body > .details{
     grid-template-columns: repeat(3, 70px);
     grid-template-rows: repeat(3, 50px);
     grid-gap: 10px;
-    /* width: 500px; */
+    width: 500px;
     /* height: 500px; */
     margin: auto;
     /* border: 1px solid red; */

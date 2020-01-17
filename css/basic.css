@@ -4,6 +4,9 @@ html, body{
 }
 body{
     background: #FEFCFD;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
     /* margin: 70px; */
     
 }
@@ -15,7 +18,6 @@ body > .container{
     /* border: 1px solid red; */
     max-width: 60%;
     margin: auto;
-    margin-top: 100px;
 
 }
 body > .details{
@@ -25,6 +27,7 @@ body > .details{
 .details > div{
     display: flex;
     padding: 20px;;
+    font-size: 30px;
 }
 .score{
     margin-left: auto;
@@ -35,9 +38,9 @@ body > .details{
     /* display: grid; */
     grid-template-columns: repeat(3, 70px);
     grid-template-rows: repeat(3, 50px);
-    grid-gap: 10px;
+    grid-gap: 20px;
     width: 500px;
-    height: 500px;
+    height: 350px;
     margin: auto;
     /* border: 1px solid red; */
     justify-content: center;
@@ -45,7 +48,11 @@ body > .details{
 }
 .container > button {
     border: none;
-    /* outline: none; */
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.58);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.78);
+    
 }
 
 .container > button:nth-child(1n){
@@ -82,4 +89,25 @@ body > .details{
 
 .container > .focusClass:focus{
     background: black;
+}
+#btn{
+    width: 130px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.58);
+/*    background-color: rgba(216, 215, 247, 0.87);*/
+    background-color: rgba(0, 128, 0, 0.77);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.78);
+    align-content: center;
+    font-size: 20px;
+    
+}
+#btn:hover{
+    cursor: pointer;
+}
+#gameover{
+    font-size: 35px;
+    color: red;
+    font-weight: bolder;
+    
 }

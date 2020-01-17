@@ -5,53 +5,59 @@ html, body{
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 body{
     background: #FEFCFD;
     display: flex;
 }
-.left-hand-side, .right-hand-side{
+.stats{
     font-family: monospace;
 }
 
-.left-hand-side{
+.stats{
     /* border: 1px solid yellow; */
-    flex: 1;
+    max-width: 30%;
     display: flex;
+    flex: 0.3;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0;
     /* text-align: center; */
+}
+.stats > div:first-child{
+    margin-bottom: 30px;
 }
 .tries{
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
+    margin-left: 0;
 }
-.right-hand-side{
-    /* border: 1px solid blue; */
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .score{
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
+    margin-left: 0;
 }
 body > .container{
     display: grid;
 }
 
 .container{
-    /* display: grid; */
-    grid-template-columns: repeat(3, 90px);
-    grid-template-rows: repeat(3, 70px);
+    display: flex;
+    flex: 0.4;
+    flex-basis: 200px;
+    grid-template-columns: repeat(3, 110px);
+    grid-template-rows: repeat(3, 80px);
     grid-gap: 10px;
-    width: 500px;
     height: 500px;
     margin: auto;
+    margin-left: 10px;
     /* border: 1px solid red; */
     justify-content: center;
     align-content: center;
+    padding: 0;
 }
 .container > button {
     border: none;
@@ -92,4 +98,35 @@ body > .container{
 
 .container > .focusClass:focus{
     background: black;
+}
+
+@media all and (max-width: 500px){
+    body{
+        display: grid;
+        justify-content: center;
+    }
+    .stats{
+        display: flex;
+        max-width: 100%;
+    }
+    .stats > div{
+        display: flex;
+        justify-content: flex-start;
+        direction: row;
+    }
+    .container{
+
+        display: grid;
+        grid-template-columns: repeat(3, 90px);
+        grid-template-rows: repeat(3, 60px);
+        grid-gap: 10px;
+        max-width: 100%;
+        height: 500px;
+        margin-top: auto;
+        /* margin: auto; */
+        /* justify-content: center; */
+        /* align-content: center; */
+        padding: 10px;
+
+    }
 }

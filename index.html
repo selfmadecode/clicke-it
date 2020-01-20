@@ -9,9 +9,15 @@
 </head>
 <body>
 
+<<<<<<< HEAD
     <div class="stats">
         <div class="tries">Tries:</div>
         <div class="score">Score:</div>
+=======
+    <div class="details">
+        <div class="tries">Tries: 4</div>
+        <div class="score">Score: 0</div>
+>>>>>>> 5e293e266fdb011559333c19059e02762a1a886f
     </div>
 
     <div class="container">
@@ -26,6 +32,12 @@
         <button class="content"></button>
 
     </div>
+    
+    <div class="section">
+        <button id="btn" onclick="Play()">Play</button>
+    <p id="gameover"></p>
+    
+    </div>
 
 
     <script>
@@ -35,18 +47,19 @@
         const trials = document.querySelector('.tries');
         const bodyDocument = document.querySelector('.body');
 
-
         let isClicked = false;
         let score = 0;
         let tries = 4;
+        let gameover = document.getElementById("gameover");
+
 
         function gameManager()
         {
             let randomBoxNumber = Math.floor(Math.random()*box.length);
             box[randomBoxNumber].classList.add('focusClass');
             box[randomBoxNumber].focus();
-            setTimeout(checkClick(isClicked), 2000);
-            box[randomBoxNumber].addEventListener('click', clickListener); 
+            setTimeout(checkClick(isClicked), 1000)// checks if we click after 2sec;
+            box[randomBoxNumber].addEventListener('click', clickListener) // adds click listener; 
 
             if (isClicked){
                 console.log("After click " + isClicked);
@@ -54,27 +67,52 @@
                 console.log('score ' + score);
                 isClicked = false;
             } 
-            console.log('Tries - ' +tries);
-
+            
+            
         }
+        
+//1////////////////////////////////////////////////////////////////////////////////
+        
 
-        function clickListener ()
+        function clickListener () //listens for click
         {
             isClicked = true;
-            score++;
+            score++; //adds to score
         }
-
+//2/////////////////////////////if we you not click/////////////////////////////////////////////////////
         const checkClick = something => {
             if (!something){
-
                 tries--;
                 trials.innerText = 'Tries: '+tries;
             }
-                
+            
+    //////////////////////////////// the function below is used to catch the number of tries left
+            if (tries == 0){
+                gameover.innerText = "Game Over";
+//                return checkClick; //NO
+                clearInterval(intervall);//stops the game
+                btn.disabled = false; // reactivates the play button
+                tries = 4; //resigns 4 tries after ending the game
+                return;   
+            }  
         }
-
-    setInterval(gameManager,3000);
-
+        
+    let intervall; // holds the global game time
+    let btn = document.getElementById('btn'); // play button
+        
+   ///3/////////////starts the game//////////////////////////////////////////////////////////// 
+        function Play(){
+            gameover.innerText = ""; // clears the gameover text
+            trials.innerText = "Tries: 4";
+            scoretag.innerText = "Score: 0";
+            btn.disabled = true; // disables the play button after click
+            score = 0; // assign 0 to score each time the play button is clicked
+            if (tries >0){ 
+                intervall =  setInterval(gameManager,2000); //the speed and time of the game
+            }
+        }
+        
+        
 
     </script>
 </body>

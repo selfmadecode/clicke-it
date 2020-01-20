@@ -11,7 +11,7 @@
 
     <div class="details">
         <div class="tries">Tries: 4</div>
-        <div class="score">Score:</div>
+        <div class="score">Score: 0</div>
     </div>
     <div class="container">
         <button class="content"></button>
@@ -25,8 +25,11 @@
         <button class="content"></button>
     </div>
     
-    <button id="btn" onclick="Play()">Play</button>
+    <div class="section">
+        <button id="btn" onclick="Play()">Play</button>
     <p id="gameover"></p>
+    
+    </div>
 
 
     <script>
@@ -87,11 +90,13 @@
         }
         
     let intervall; // holds the global game time
-    var btn = document.getElementById('btn'); // play button
+    let btn = document.getElementById('btn'); // play button
         
    ///3/////////////starts the game//////////////////////////////////////////////////////////// 
         function Play(){
-            
+            gameover.innerText = ""; // clears the gameover text
+            trials.innerText = "Tries: 4";
+            scoretag.innerText = "Score: 0";
             btn.disabled = true; // disables the play button after click
             score = 0; // assign 0 to score each time the play button is clicked
             if (tries >0){ 
